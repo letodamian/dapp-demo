@@ -18,7 +18,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 21
 
       - name: install-dependencies
         uses: bahmutov/npm-install@v1
