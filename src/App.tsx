@@ -3,6 +3,7 @@ import './App.css'
 import { useMainContract } from './hooks/useMainContract'
 import { useTonConnect } from './hooks/useTonConnect';
 import { fromNano } from 'ton-core';
+import WebApp from '@twa-dev/sdk';
 
 function App() {
   const {
@@ -25,6 +26,9 @@ function App() {
         {contractBalance && <p>{`Balance ${fromNano(contractBalance)}`}</p>}
         <p>{`value ${counter_value}`}</p>
       </div>
+      <div>
+        <p>{`Platform ${WebApp.platform}`}</p>
+      </div>
 
       {
         connected ? (
@@ -32,6 +36,7 @@ function App() {
             <button type='button' onClick={sendIncrement}>increment by 5</button>
             <button type='button' onClick={sendDeposit}>deposit by 1</button>
             <button type='button' onClick={sendWithdraw}>withdraw</button>
+            <button type='button' onClick={() => WebApp.showAlert('hi')}>withdraw</button>
           </>
         ) : (
           <p>please connect</p>
